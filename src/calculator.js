@@ -3,13 +3,9 @@ function add(numbers) {
 		return 0;
 	}
 
-	if(numbers.includes(",")) {
-		var numberArray = numbers.split(",");
-		return sum(numberArray);
-	}
-	else {
-		return parseInt(numbers);
-	}
+	//replace newline with comma before splitting
+	var numberArray = numbers.replace(/\n/g, ",").split(",");
+	return sum(numberArray);
 }
 
 function sum(numberArray) {
