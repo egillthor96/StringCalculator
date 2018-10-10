@@ -23,3 +23,7 @@ it("should return sum of multiple numbers", () => {
 it("should return sum of multiple numbers split with newline", () => {
 	expect(add("1 \n2,3")).toBe(6);
 });
+
+it("should throw an exception if string has negative numbers", () => {
+	expect(add("2,-4,3,-5")).toThrow("Negatives not allowed: -4,-5");
+});

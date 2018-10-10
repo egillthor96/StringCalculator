@@ -5,6 +5,7 @@ function add(numbers) {
 
 	//replace newline with comma before splitting
 	var numberArray = numbers.replace(/\n/g, ",").split(",");
+	validateNumbers(numberArray);
 	return sum(numberArray);
 }
 
@@ -17,6 +18,23 @@ function sum(numberArray) {
 	}
 
 	return sum;
+}
+
+function validateNumbers(numberArray) {
+
+	var negatives = [];
+
+	for(var i = 0; i < numberArray.length; i++) {
+
+		if(parseInt(numberArray[i]) < 0) {
+			negatives.push(numberArray[i]);
+		}
+		
+	}
+	if(negatives.length) {
+		throw "Negatives not allowed: " + negatives.join(",");
+	}
+	
 }
 
 module.exports = add;
