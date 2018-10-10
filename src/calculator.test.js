@@ -25,7 +25,10 @@ it("should return sum of multiple numbers split with newline", () => {
 });
 
 it("should throw an exception if string has negative numbers", () => {
-	expect(add("2,-4,3,-5")).toThrow("Negatives not allowed: -4,-5");
+	function validate() {
+		add("2,-4,3,-5");
+	}
+	expect(validate).toThrowError("Negatives not allowed: -4,-5");
 });
 
 it("should ignore numbers larger than 1000", () => {
