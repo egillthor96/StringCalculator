@@ -3,6 +3,15 @@ function add(numbers) {
 		return 0;
 	}
 
+
+	if(numbers.startsWith("//")) {
+
+		var newString = numbers.slice(2);
+		var	delimeter = numbers[2];
+		var numberArray = newString.replace(/\n/g, delimeter).split(delimeter);
+		return sum(numberArray);
+	}
+
 	//replace newline with comma before splitting
 	var numberArray = numbers.replace(/\n/g, ",").split(",");
 	validateNumbers(numberArray);
@@ -16,6 +25,9 @@ function sum(numberArray) {
 	for(var i = 0; i < numberArray.length; i++) {
 
 		if(parseInt(numberArray[i]) > 1000) {
+			continue;
+		}
+		if(numberArray[i] == "") {
 			continue;
 		}
 		sum += parseInt(numberArray[i]);

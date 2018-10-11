@@ -34,3 +34,13 @@ it("should throw an exception if string has negative numbers", () => {
 it("should ignore numbers larger than 1000", () => {
 	expect(add("1001,2000,3,2")).toBe(5);
 });
+
+
+it("should allow custom delimeters", () => {
+	expect(add("//;\n1;2")).toBe(3);
+});
+
+
+it("should allow custom delimeters", () => {
+	expect(add("//|\n5|6|4")).toBe(15);
+});
