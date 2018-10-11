@@ -6,10 +6,7 @@ function add(numbers) {
 
 	if(numbers.startsWith("//")) {
 
-		var newString = numbers.slice(2);
-		var	delimeter = numbers[2];
-		var numberArray = newString.replace(/\n/g, delimeter).split(delimeter);
-		return sum(numberArray);
+		return sum(getCustomDelimeterArray(numbers));
 	}
 
 	//replace newline with comma before splitting
@@ -50,6 +47,14 @@ function validateNumbers(numberArray) {
 		throw "Negatives not allowed: " + negatives.join(",");
 	}
 	
+}
+
+function getCustomDelimeterArray(numbers) {
+
+	var newString = numbers.slice(2);
+	var	delimeter = numbers[2];
+	var numberArray = newString.replace(/\n/g, delimeter).split(delimeter);
+	return numberArray;	
 }
 
 module.exports = add;
